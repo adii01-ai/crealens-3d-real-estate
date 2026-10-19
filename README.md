@@ -6,6 +6,8 @@ As visitors scroll, the camera walks up the garden path, through the front door,
 modern villa — living room, kitchen, staircase, master suite and roof terrace — before moving on to the
 residential and commercial listings, the agency's story and the contact form.
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/adii01-ai/crealens-3d-real-estate)
+
 ## Features
 
 - Real-time 3D villa built with **Three.js**: real PBR textures, sky-photo lighting, sun shadows through the glass
@@ -28,7 +30,8 @@ The 3D models, textures and sky HDRI live in `public/assets`. To re-download the
 npm run assets
 ```
 
-Build for production (outputs to `dist/`, ready for any static host such as Netlify or Vercel):
+Build for production (outputs to `dist/`, ready for any static host). The included `render.yaml`
+deploys it to [Render](https://render.com) as a static site — use the button above.
 
 ```bash
 npm run build
