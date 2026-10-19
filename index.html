@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crealens — Homes & Commercial Real Estate</title>
+    <meta name="description" content="Crealens is a real estate agency for homes and commercial property. Buy, sell, rent and invest with confidence." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="loader" aria-hidden="true">
+      <div class="loader-mark">Crea<span>lens</span></div>
+      <div class="loader-bar"><i></i></div>
+      <div class="loader-pct">0%</div>
+      <p class="loader-note">Preparing the virtual tour…</p>
+    </div>
+
+    <ol class="tour-hud" aria-hidden="true">
+      <li>Arrival</li><li>Entrance</li><li>Living</li><li>Kitchen</li><li>Stairs</li><li>Suite</li><li>Terrace</li>
+    </ol>
+
+    <canvas id="scene" aria-hidden="true"></canvas>
+
+    <header class="nav" id="nav">
+      <a href="#hero" class="logo">Crea<span>lens</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#homes">Homes</a>
+        <a href="#commercial">Commercial</a>
+        <a href="#why">Why Crealens</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn-small">Book a visit</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- 1. HERO -->
+      <section id="hero" class="section hero" data-scene="hero">
+        <div class="container">
+          <p class="eyebrow reveal">Homes · Offices · Investments</p>
+          <h1 class="reveal">Find the place your <em>life</em> and <em>business</em> grow.</h1>
+          <p class="lead reveal">
+            Crealens helps families find their next home and companies find the space to scale.
+            Curated listings, honest advice and a team that handles everything from first viewing to final key.
+          </p>
+          <div class="cta-row reveal">
+            <a href="#homes" class="btn">Browse properties</a>
+            <a href="#contact" class="btn btn-ghost">Talk to an agent</a>
+          </div>
+        </div>
+        <div class="scroll-hint">Scroll to tour the villa <i></i></div>
+      </section>
+
+      <!-- VIRTUAL TOUR: each step is a scroll spacer; its caption is shown when the camera arrives -->
+      <section id="tour" class="tour" aria-label="Virtual tour of Skyline Villa">
+        <div class="tour-step" data-scene="arrive">
+          <div class="tour-card intro">
+            <p class="eyebrow">Featured property · Virtual tour</p>
+            <h2>Skyline Villa</h2>
+            <p>Hillside Estates · 5 bed · 4 bath · 4,200 sq ft</p>
+            <div class="tour-meta"><b>$1,250,000</b><span>Keep scrolling to step inside ↓</span></div>
+          </div>
+        </div>
+        <div class="tour-step" data-scene="door">
+          <div class="tour-card"><p class="eyebrow">01 — Entrance</p><h3>A warm welcome</h3>
+            <p>A solid cedar pivot door set in natural stone opens onto a bright, open-plan ground floor.</p></div>
+        </div>
+        <div class="tour-step" data-scene="living">
+          <div class="tour-card"><p class="eyebrow">02 — Living room</p><h3>Light from two sides</h3>
+            <p>Floor-to-ceiling glazing frames the garden and pool, with oak floors running throughout.</p></div>
+        </div>
+        <div class="tour-step" data-scene="kitchen">
+          <div class="tour-card"><p class="eyebrow">03 — Kitchen &amp; dining</p><h3>Made for gathering</h3>
+            <p>A marble waterfall island, integrated appliances and dining for six under statement pendants.</p></div>
+        </div>
+        <div class="tour-step" data-scene="stairs">
+          <div class="tour-card"><p class="eyebrow">04 — Staircase</p><h3>Floating oak treads</h3>
+            <p>A frameless glass balustrade keeps the double-height stairwell open and full of light.</p></div>
+        </div>
+        <div class="tour-step" data-scene="bedroom">
+          <div class="tour-card"><p class="eyebrow">05 — Master suite</p><h3>A calm retreat</h3>
+            <p>Cedar ceilings, built-in wardrobes and a reading corner looking out over the treetops.</p></div>
+        </div>
+        <div class="tour-step" data-scene="terrace">
+          <div class="tour-card"><p class="eyebrow">06 — Roof terrace</p><h3>Evenings outside</h3>
+            <p>A private terrace above the living room, overlooking the pool and gardens.</p>
+            <div class="cta-row"><a href="#contact" class="btn">Book a viewing</a><a href="#homes" class="btn btn-ghost">More homes</a></div></div>
+        </div>
+      </section>
+
+      <!-- 2. HOMES -->
+      <section id="homes" class="section split-right" data-scene="homes">
+        <div class="container">
+          <div class="panel">
+            <p class="eyebrow reveal">Residential</p>
+            <h2 class="reveal">Homes built around the way you live.</h2>
+            <p class="reveal">From city apartments to family villas, every home we list is visited, verified and priced fairly.</p>
+            <div class="cards" id="homeCards"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. COMMERCIAL -->
+      <section id="commercial" class="section split-left" data-scene="commercial">
+        <div class="container">
+          <div class="panel">
+            <p class="eyebrow reveal">Commercial</p>
+            <h2 class="reveal">Spaces that work as hard as you do.</h2>
+            <p class="reveal">Offices, retail fronts and warehouses in prime locations, with leasing terms negotiated for growing businesses.</p>
+            <div class="cards" id="commercialCards"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. WHY -->
+      <section id="why" class="section centered" data-scene="why">
+        <div class="container">
+          <p class="eyebrow reveal">Why Crealens</p>
+          <h2 class="reveal">A clearer view of every deal.</h2>
+          <div class="stats">
+            <div class="stat reveal"><b data-count="1200" data-suffix="+">0</b><span>Properties sold</span></div>
+            <div class="stat reveal"><b data-count="15" data-suffix=" yrs">0</b><span>In the market</span></div>
+            <div class="stat reveal"><b data-count="98" data-suffix="%">0</b><span>Client satisfaction</span></div>
+            <div class="stat reveal"><b data-count="350" data-suffix="+">0</b><span>Businesses housed</span></div>
+          </div>
+          <div class="services">
+            <div class="service reveal">
+              <h3>Buy & Sell</h3>
+              <p>Market-accurate valuations, professional staging and negotiation that protects your price.</p>
+            </div>
+            <div class="service reveal">
+              <h3>Rent & Lease</h3>
+              <p>Verified tenants and landlords, clear contracts and support for the full term of the lease.</p>
+            </div>
+            <div class="service reveal">
+              <h3>Invest</h3>
+              <p>Yield analysis and portfolio advice for residential and commercial investors.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section split-left" data-scene="about">
+        <div class="container">
+          <div class="panel about">
+            <p class="eyebrow reveal">About Crealens</p>
+            <h2 class="reveal">Real estate, seen clearly.</h2>
+            <p class="reveal">
+              Crealens began with a simple idea: buying, selling or leasing property should feel transparent, not stressful.
+              We combine local market knowledge with honest advice, so families find homes that fit their lives
+              and businesses find space that fits their plans.
+            </p>
+            <p class="reveal">
+              From the first viewing to the final key, one dedicated agent stays with you, backed by a team
+              of valuers, legal partners and property managers.
+            </p>
+            <div class="values">
+              <div class="value reveal"><h3>Clarity</h3><p>Fair pricing, plain-language contracts and no hidden fees.</p></div>
+              <div class="value reveal"><h3>Care</h3><p>Every listing visited and verified before it reaches you.</p></div>
+              <div class="value reveal"><h3>Commitment</h3><p>Support that continues long after the paperwork is signed.</p></div>
+            </div>
+            <div class="cta-row reveal">
+              <a href="#contact" class="btn">Meet our team</a>
+              <a href="#homes" class="btn btn-ghost">View listings</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. CONTACT -->
+      <section id="contact" class="section split-right" data-scene="contact">
+        <div class="container">
+          <div class="panel">
+            <p class="eyebrow reveal">Contact</p>
+            <h2 class="reveal">Let's open the door.</h2>
+            <p class="reveal">Tell us what you're looking for and an agent will get back to you within one working day.</p>
+            <form id="contactForm" class="form reveal" novalidate>
+              <div class="row">
+                <label>Name<input name="name" required autocomplete="name" /></label>
+                <label>Phone<input name="phone" type="tel" autocomplete="tel" /></label>
+              </div>
+              <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+              <label>I'm interested in
+                <select name="interest">
+                  <option>Buying a home</option>
+                  <option>Renting a home</option>
+                  <option>Commercial space</option>
+                  <option>Selling my property</option>
+                  <option>Investment advice</option>
+                </select>
+              </label>
+              <label>Message<textarea name="message" rows="3"></textarea></label>
+              <button type="submit" class="btn">Send enquiry</button>
+              <p class="form-note" id="formNote" role="status"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <a href="#hero" class="logo">Crea<span>lens</span></a>
+        <p>© <span id="year"></span> Crealens Real Estate. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#homes">Homes</a><a href="#commercial">Commercial</a><a href="#about">About</a><a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
